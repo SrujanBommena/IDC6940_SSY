@@ -19,9 +19,34 @@ The research aims to integrate uncertainty quantification and explainability int
 ### METHODS USED
 #### METHODS AND USES
 
+The overview of the whole process used in the analytics is summarized as a picture below;
+
+![image](https://github.com/user-attachments/assets/d564b642-11d6-4f0b-9c67-85f188655244)
+
+
 1 Quantile regression forests (QRF) is a more general method of random forests that gives prediction intervals. QRF provides prediction intervals for uncertainty quantification.
 
+$$ \[
+w_i(x, \theta) =
+\frac{1\{X_i \in R_\ell(x, \theta)\}}
+{\sum_{j : X_j \in R_\ell(x, \theta)} 1}
+\] $$
+
+$$ \[
+w_i(x) = k_1 \sum w_i(x, \theta_t)
+\] $$
+
 2 SHAP provides explanations of the contribution of individual input features to predictively uncertain clearness. It also enhances explainability by identifying key predictor features.
+
+$$
+g(z_0) = 0 + \sum_{i} \alpha_i z_0^i
+$$
+
+EXACT SHAP VALUES :
+
+$$ \[
+x_0 (z_0) = \frac{M - 1}{\binom{M}{|z_0|}\cdot |z_0| \cdot (M - |z_0|)} $$
+
 
 3 Process-aware information systems (PAIS) leverage manufacturing execution systems data to build comprehensive event logs for predictive modeling in general. PAIS grounding the model in real-world data captures production process complexity and variability.
 
@@ -42,6 +67,14 @@ Using SHAP to explain prediction intervals instead of point predictions lends gr
 
 The approach can be integrated with optimization approaches to improve decision-making in the face of uncertainty, making it extremely useful for prescriptive analytics. To ensure that decisions are resilient to variability, the QRF model's outputs, for example, can be immediately integrated into optimization frameworks for scheduling, resource allocation, or inventory management. The significance of explainability in fostering confidence in machine learning systems is further highlighted by this study. It enables users to verify model predictions and pinpoint possible areas for development by offering insights into the factors that contribute to uncertainty. This is especially crucial in high-stakes industries like manufacturing, where choices made using inaccurate or ambiguous models may have serious operational or financial repercussions.
 extending the paradigm to further fields where uncertainty is crucial, like healthcare or supply chain logistics.
+
+SHAP summary plots for "low," "medium," and "high" uncertainty profiles, showcasing differences in feature impacts under varying levels of uncertainty
+
+![image](https://github.com/user-attachments/assets/ec4106ca-c912-464f-9e5b-c3847b5a5d75)
+
+![image](https://github.com/user-attachments/assets/92f0c941-d7be-4f02-9c68-bc4e2c6d1ebd)
+
+This gives representation of the other usage of the given method in new fields, for instance health care and supply chain logistics.
 
 ### WORK CONNECTIONS
 
